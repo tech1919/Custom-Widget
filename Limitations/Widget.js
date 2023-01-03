@@ -1,3 +1,4 @@
+
 define(['dojo/_base/declare',
         'jimu/BaseWidget',
         'esri/views/View',
