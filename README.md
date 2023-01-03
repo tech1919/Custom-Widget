@@ -9,16 +9,18 @@ such as tilt, zoom..
 
 1) dowmload the LimitationsPinkas folder from this repo.
 2) extract to this path: 
-```
-"...\ArcGISWebAppBuilder\client\stemapp3d\widgets"
-```
+    ```
+    "...\ArcGISWebAppBuilder\client\stemapp3d\widgets"
+    ```
 
 3) Open `config.json` file:
 
-```
-"...\ArcGISWebAppBuilder\client\stemapp3d\predefined-apps\default\config.json"
-```
+    ```
+    "...\ArcGISWebAppBuilder\client\stemapp3d\predefined-apps\default\config.json"
+    ```
 4) add this line under the `"widgets"` array:
+    ```
     {
       "uri": "widgets/LimitationsPinkas/Widget"
     }
+    ```
