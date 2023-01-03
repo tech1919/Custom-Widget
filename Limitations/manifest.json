@@ -11,12 +11,12 @@
   "license": "http://www.apache.org/licenses/LICENSE-2.0",
   "properties": {
     "inPanel": false,
-    "hasConfig": false,
+    "hasConfig": true,
     "hasStyle":false,
     "hasUIFile":false,
-    "hasSettingUIFile":false,
-    "hasSettingLocale":false,
-    "hasSettingStyle":false
+    "hasSettingUIFile":true,
+    "hasSettingLocale":true,
+    "hasSettingStyle":true
 
   }
 }

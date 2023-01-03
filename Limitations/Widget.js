@@ -17,25 +17,25 @@ function(declare, BaseWidget) {
 
       // this.sceneView.zoom = 20.5;
       var currentPositionZ = this.sceneView.camera.position.z;
-      console.log("current Z: " + currentPositionZ);
+      // console.log("current Z: " + currentPositionZ);
 
       // initialization constraints
       this.sceneView.constraints.tilt.max = tiltLimit;
-      // this.sceneView.constraints.altitude.min = zoomLimit;
+      this.sceneView.constraints.altitude.min = zoomLimit;
 
       // console.log(this.sceneView.camera.position.z);
       // console.log(this.sceneView.camera.tilt);
 
       // If the map already after the limited values.
-      // if(this.sceneView.camera.position.z < zoomLimit){
-      //   //CHANGE ZOOM:
-      //   this.sceneView.goTo(
-      //     {
-      //       position:{
-      //         z:zoomLimit,
-      //       }
-      //     });
-      // }
+      if(this.sceneView.camera.position.z < zoomLimit){
+        //CHANGE ZOOM:
+        this.sceneView.goTo(
+          {
+            position:{
+              z:zoomLimit,
+            }
+          });
+      }
       if(this.sceneView.camera.tilt > tiltLimit){
         //CHANGE TILT:
         this.sceneView.goTo(
@@ -44,12 +44,12 @@ function(declare, BaseWidget) {
           });
       }
 
-      sceneElement[0].addEventListener("mousewheel", (e) => {
-        console.log(this.sceneView.camera.position.z);
-        console.log(this.sceneView.camera.tilt);
-        console.log(this.sceneView.zoom);
+      // sceneElement[0].addEventListener("mousewheel", (e) => {
+      //   console.log(this.sceneView.camera.position.z);
+      //   console.log(this.sceneView.camera.tilt);
+      //   console.log(this.sceneView.zoom);
 
-      })
+      // })
       
     },
   

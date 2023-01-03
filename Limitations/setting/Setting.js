@@ -4,11 +4,7 @@ define([
     'jimu/BaseWidgetSetting'
   ],
   function(declare, BaseWidgetSetting) {
-  
-    //Please note that the widget depends on the 3.x API
-  
-    return declare([BaseWidgetSetting], {
-      baseClass: 'jimu-widget-limited-setting',
+      return declare([BaseWidgetSetting], {
   
       postCreate: function(){
         //the config object is passed in
@@ -16,14 +12,18 @@ define([
       },
   
       setConfig: function(config){
-        this.textNode.value = config.configText;
-        console.log("String setConfig: " + config.configText);
+        this.zoomConfig.value = config.zoomLimitedValue;
+        this.tiltConfig.value = config.tiltLimitedValue;
+        console.log("Zoom setConfig: " + config.zoomLimitedValue);
+        console.log("Tilt setConfig: " + config.tiltLimitedValue);
+
       },
   
       getConfig: function(){
         //WAB will get config object through this method
         return {
-          configText: this.textNode.value
+          zoomLimitedValue: this.zoomConfig.value,
+          tiltLimitedValue: this.tiltConfig.value
         };
       }
     });
