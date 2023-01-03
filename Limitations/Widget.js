@@ -41,10 +41,12 @@ function(declare, BaseWidget) {
           });
       }
 
-      // sceneElement[0].addEventListener("mousewheel", (e) => {
-      //   console.log(this.sceneView.camera.position.z);
-      //   console.log(this.sceneView.camera.tilt);
-      // })
+      sceneElement[0].addEventListener("mousewheel", (e) => {
+        console.log(this.sceneView.camera.position.z);
+        console.log(this.sceneView.camera.tilt);
+        console.log(this.sceneView.zoom);
+        
+      })
       
     },
   
