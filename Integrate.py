@@ -16,8 +16,7 @@ def main():
     
     if "ArcGISWebAppBuilder" in os.listdir(arc_folder):
         arc_folder = os.path.join(arc_folder , "ArcGISWebAppBuilder")
-    if not os.path.exists(arc_folder):
-        arc_folder = os.getcwd()
+
 
 
 
@@ -25,7 +24,7 @@ def main():
     
     widget_name_list = []
 
-    for widget in os.listdir(arc_folder):
+    for widget in os.listdir(os.getcwd()):
         if ".exe" in widget or ".py" in widget or ".md" in widget or "git" in widget:
             continue
 
@@ -50,7 +49,7 @@ def main():
         print(Fore.RED + "could not locate config.json file" + colorama.Style.RESET_ALL)
     
     if widget_name in os.listdir(widgets_folder):
-        answer = input(f"Do you want to update the {widget_name}? [Y/N]")
+        answer = input(f"Do you want to update the {widget_name}? [Y/N] ")
         if answer.lower() == "y":
             answer = True
         elif answer.lower() == "n":
@@ -61,12 +60,12 @@ def main():
                 os.path.join(widgets_folder , widget_name)
             )
             shutil.copytree(
-                src= os.path.join(arc_folder , widget_name),
+                src= os.path.join(os.getcwd() , widget_name),
                 dst=os.path.join(widgets_folder , widget_name)
                 )
     else:
         shutil.copytree(
-                src= os.path.join(arc_folder , widget_name),
+                src= os.path.join(os.getcwd() , widget_name),
                 dst=os.path.join(widgets_folder , widget_name)
                 )
 
