@@ -7,6 +7,7 @@ such as tilt, zoom..
 
 ### implementation
 
+1) dowmload the 
 '''
 "...\ArcGISWebAppBuilder\client\stemapp3d\widgets"
 '''
@@ -15,3 +16,7 @@ such as tilt, zoom..
 '''
 "...\ArcGISWebAppBuilder\client\stemapp3d\predefined-apps\default\config.json"
 '''
+
+{
+      "uri": "widgets/LimitationsPinkas/Widget"
+    }
