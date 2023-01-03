@@ -14,13 +14,12 @@ def main():
     arc_folder = input(Fore.GREEN + "Enter path to the location of ArcGISWebAppBuilder folder : " + colorama.Style.RESET_ALL)
 
     # get the location of the ArcGISWebAppBuilder folder
-    if not "ArcGISWebAppBuilder" in os.listdir(arc_folder):
+    if not "ArcGISWebAppBuilder" in arc_folder:
         arc_folder = os.path.join(arc_folder , "ArcGISWebAppBuilder")
 
-    print(Fore.GREEN + arc_folder  + colorama.Style.RESET_ALL)
+    print(Fore.CYAN + arc_folder  + colorama.Style.RESET_ALL)
     if not os.path.exists(arc_folder):
-        # raise Exception(Fore.RED + f"could not locate {arc_folder} folder" + colorama.Style.RESET_ALL)
-        pass
+        raise Exception(Fore.RED + f"could not locate {arc_folder} folder" + colorama.Style.RESET_ALL)
         
 
     # collect the list of widgets from this folder
@@ -48,7 +47,7 @@ def main():
     
     # copy the widget folder to the desired folder
     if widget_name in os.listdir(widgets_folder):
-        answer = input(f"Seems like this widget is already in use. Do you want to update {widget_name}? [Y/N]")
+        answer = input(Fore.GREEN + f"Seems like this widget is already in use. Do you want to update {widget_name}? [Y/N] " + colorama.Style.RESET_ALL)
         if answer.lower() == "y" or "yes" == answer.lower():
             answer = True
         elif answer.lower() == "n":
@@ -65,7 +64,7 @@ def main():
                 raise Exception(Fore.RED + f"Error while removing the {widget_name} widget" + colorama.Style.RESET_ALL)
             try:
                 shutil.copytree(
-                    src= os.path.join(arc_folder , widget_name),
+                    src= os.path.join(os.getcwd() , widget_name),
                     dst=os.path.join(widgets_folder , widget_name)
                     )
             except:
@@ -73,7 +72,7 @@ def main():
     else:
         try:
             shutil.copytree(
-                    src= os.path.join(arc_folder , widget_name),
+                    src= os.path.join(os.getcwd() , widget_name),
                     dst=os.path.join(widgets_folder , widget_name)
                     )
         except:
@@ -82,8 +81,9 @@ def main():
     
     # check if this is a default widget
     if "default_widget.txt" in os.listdir(os.path.join(widgets_folder , widget_name)):
-        arc_folder = input(Fore.GREEN + "Enter path to the location of ArcGISWebAppBuilder folder : " + colorama.Style.RESET_ALL)
-        answer = input(Fore.GREEN + f"Do you want to set {widget_name} as a default widget? [Y/N]")
+        
+        answer = input(Fore.GREEN + f"Do you want to set {widget_name} as a default widget? [Y/N] " + colorama.Style.RESET_ALL)
+        
         if "y" == answer.lower() or "yes" == answer.lower():
 
             
@@ -95,18 +95,18 @@ def main():
             with open(config_json_file , "r") as f:
                 config_data = f.read()
                 config_data = json.loads(config_data)
-            print(config_data)
-            
+
             # update data
             widget_default_uri = f"widgets/{widget_name}/Widget"
+            for index , uri in enumerate(config_data["widgetOnScreen"]["widgets"]):
+                if uri["uri"] == widget_default_uri:
+                    config_data["widgetOnScreen"]["widgets"].pop(index)
 
-            
+            config_data["widgetOnScreen"]["widgets"].append({"uri" : widget_default_uri})
             config_data = json.dumps(config_data)
-
 
             with open(config_json_file , "w") as f:
                 f.write(config_data)
-
 
 
     print(Fore.GREEN + f"Widget {widget_name} was updated!" + colorama.Style.RESET_ALL)
