@@ -13,10 +13,11 @@ such as tilt, zoom..
 "...\ArcGISWebAppBuilder\client\stemapp3d\widgets"
 ```
 
+3)Open `config.json` file:
 
-'''
+```
 "...\ArcGISWebAppBuilder\client\stemapp3d\predefined-apps\default\config.json"
-'''
+```
 
 {
       "uri": "widgets/LimitationsPinkas/Widget"
