@@ -7,10 +7,11 @@ such as tilt, zoom..
 
 ### implementation
 
-1) dowmload the 
-'''
+1) dowmload the LimitationsPinkas folder from this repo.
+2) extract to this path: 
+```
 "...\ArcGISWebAppBuilder\client\stemapp3d\widgets"
-'''
+```
 
 
 '''
