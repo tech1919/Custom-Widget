@@ -6,7 +6,7 @@ This widget will limit the scene view according to the admin.
 such as tilt, zoom.. 
   
 
-### implementation
+### Implementation
 
 1) dowmload the LimitationsPinkas folder from this repo.
 2) extract to this path: 
@@ -22,6 +22,6 @@ such as tilt, zoom..
 4) add this line under the `"widgets"` array:
     ```
     {
-      "uri": "widgets/LimitationsPinkas/Widget"
+      "uri": "widgets/Limitations/Widget"
     }
     ```
