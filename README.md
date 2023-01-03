@@ -1,8 +1,8 @@
 # Limitations Widget - arcgis web app builder
 
-###Idea
+### Idea
 This widget will limit the scene, according to the admin. 
 such as tilt, zoom.. 
   
 
-###implementation
+### implementation
