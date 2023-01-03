@@ -6,4 +6,4 @@
 
 ### widgets
 
-1) limitations
+* limitations
