@@ -13,26 +13,29 @@ function(declare, BaseWidget) {
       // further will depend on the configuration! 
       const zoomLimit = 150;
       const tiltLimit = 70;
-      // var sceneElement = document.getElementsByClassName("esri-view-root");
+      var sceneElement = document.getElementsByClassName("esri-view-root");
 
+      // this.sceneView.zoom = 20.5;
+      var currentPositionZ = this.sceneView.camera.position.z;
+      console.log("current Z: " + currentPositionZ);
 
       // initialization constraints
       this.sceneView.constraints.tilt.max = tiltLimit;
-      this.sceneView.constraints.altitude.min = zoomLimit;
+      // this.sceneView.constraints.altitude.min = zoomLimit;
 
       // console.log(this.sceneView.camera.position.z);
       // console.log(this.sceneView.camera.tilt);
 
       // If the map already after the limited values.
-      if(this.sceneView.camera.position.z < zoomLimit){
-        //CHANGE ZOOM:
-        this.sceneView.goTo(
-          {
-            position:{
-              z:zoomLimit,
-            }
-          });
-      }
+      // if(this.sceneView.camera.position.z < zoomLimit){
+      //   //CHANGE ZOOM:
+      //   this.sceneView.goTo(
+      //     {
+      //       position:{
+      //         z:zoomLimit,
+      //       }
+      //     });
+      // }
       if(this.sceneView.camera.tilt > tiltLimit){
         //CHANGE TILT:
         this.sceneView.goTo(
@@ -45,7 +48,7 @@ function(declare, BaseWidget) {
         console.log(this.sceneView.camera.position.z);
         console.log(this.sceneView.camera.tilt);
         console.log(this.sceneView.zoom);
-        
+
       })
       
     },
